@@ -1,0 +1,17 @@
+{% for product_in_basket in image_in_basket %}
+    <li class="header-cart-item">
+        <div class="header-cart-item-img">
+            <img src="{% static "new/images/item-cart-01.jpg" %}" alt="IMG">
+        </div>
+
+        <div class="header-cart-item-txt">
+            <a href="#" class="header-cart-item-name">
+                {{ product_in_basket.product.product_name }}
+            </a>
+
+            <span class="header-cart-item-info">
+                {{ product_in_basket.nmb }} x ${{ product_in_basket.price_per_item }}
+            </span>
+        </div>
+    </li>
+{% endfor %}

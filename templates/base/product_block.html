@@ -1,0 +1,48 @@
+                    <div class="item-slick2 p-l-15 p-r-15">
+						<!-- Block2 -->
+						<div class="block2">
+							<div class="block2-img wrap-pic-w of-hidden pos-relative  {% if productimage.product.is_sale == True %} block2-labelsale {% endif %} {% if productimage.product.is_new == True %} block2-labelnew {% endif %}">
+								<img src="/{{ productimage.image.url }}" alt="IMG-PRODUCT">
+
+								<div class="block2-overlay trans-0-4">
+									<div cart_id="{{ productimage.product.id}}"class="block2-btn-addcart w-size1 trans-0-4">
+										<!-- Button -->
+
+                                        <button  class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4  btn-addcart add_card_shop" id="{{ productimage.product.id}}" >
+												Add to Cart
+											</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="block2-txt p-t-20">
+								<a href="/products/product/{{ productimage.product.id }}" class="block2-name dis-block s-text3 p-b-5">
+									{{ productimage.product.product_name }}
+								</a>
+                            {% if productimage.product.is_sale == False %}
+                                <span class="block2-price m-text6 p-r-5">${{ productimage.product.product_price }}</span>
+                            {% endif %}
+                            {% if productimage.product.is_sale == True %}
+                                <span class="block2-oldprice m-text7 p-r-5">
+                                    ${{ productimage.product.product_price }}
+                                </span>
+								<span class=" block2-newprice m-text8 p-r-5">
+									<script>
+                                        var oldPrice = '{{ productimage.product.product_price }}';
+                                        var sale = '{{ productimage.product.sale }}';
+                                        var newPrice;
+                                        if (sale > 0 ){
+                                            newPrice = oldPrice - ((sale/100)*oldPrice);
+                                            document.write('$' + newPrice.toFixed(2));
+                                        }
+                                        else {
+                                            document.write('$' + '{{ productimage.product.product_price }}');
+                                        }
+                                    </script>
+								</span>
+
+
+                                {% endif %}
+							</div>
+						</div>
+					</div>

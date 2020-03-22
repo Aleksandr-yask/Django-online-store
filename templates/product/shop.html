@@ -1,0 +1,404 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Products</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'new/images/icons/favicon.png' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/fonts/themify/themify-icons.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/fonts/elegant-font/html-css/style.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/vendor/slick/slick.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/vendor/noui/nouislider.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'new/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'new/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body class="animsition">
+
+	{% include 'base/header.html' %}
+
+	<!-- Title Page -->
+
+    {% if request.path  == '/products/2/'%}
+        <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({% static 'new/images/heading-pages-02.jpg'%});">
+		<h2 class="l-text2 t-center">
+			Women
+		</h2>
+		<p class="m-text13 t-center">
+			New Arrivals Women Collection 2018
+		</p>
+	</section>
+    {% endif %}
+    {% if request.path  == '/products/3/'%}
+        <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({% static 'new/images/banner_kids.jpg'%});">
+		<h2 class="l-text2 t-center">
+			Kids
+		</h2>
+		<p class="m-text13 t-center">
+			New Arrivals Kids Collection 2018
+		</p>
+	</section>
+    {% endif %}
+    {% if request.path  == '/products/4/'%}
+        <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({% static 'new/images/banner_shop.jpg'%});">
+		<h2 class="l-text2 t-center">
+			Shop
+		</h2>
+		<p class="m-text13 t-center">
+			New Arrivals Shop Collection 2018
+		</p>
+	</section>
+    {% endif %}
+    {% if request.path  == '/products/1/'%}
+        <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({% static 'new/images/banner_men.jpg'%});">
+		<h2 class="l-text2 t-center">
+			Men
+		</h2>
+		<p class="m-text13 t-center">
+			New Arrivals Men Collection 2018
+		</p>
+	</section>
+    {% endif %}
+    {% if request.path  == '/products/' %}
+    	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({% static 'new/images/banner_shop.jpg'%});">
+		<h2 class="l-text2 t-center">
+			Shop
+		</h2>
+		<p class="m-text13 t-center">
+			New Arrivals Shop Collection 2018
+		</p>
+	</section>
+    {% endif %}
+    {% if request.path  == '/products/sale/'%}
+     <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({% static 'new/images/banner_sale.jpg'%});">
+		<h2 class="l-text2 t-center">
+			Sale
+		</h2>
+		<p class="m-text13 t-center">
+			Best Things At A Discount
+		</p>
+	</section>
+
+    {% endif %}
+
+
+{#	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({% static 'new/images/banner_shop.jpg'%});">#}
+{#		<h2 class="l-text2 t-center">#}
+{#			Shop#}
+{#		</h2>#}
+{#		<p class="m-text13 t-center">#}
+{#			New Arrivals Shop Collection 2018#}
+{#		</p>#}
+{#	</section>#}
+
+
+	<!-- Content page -->
+	<section class="bgwhite p-t-55 p-b-65">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+					<div class="leftbar p-r-20 p-r-0-sm">
+						<!--  -->
+						<h4 class="m-text14 p-b-7">
+							Categories
+						</h4>
+
+						<ul class="p-b-54">
+							<li class="p-t-4">
+								<a href="/products" class="s-text13 {% if request.path  == '/products/' %}active1{% endif %}">
+									All
+								</a>
+							</li>
+
+							<li class="p-t-4">
+								<a href="/products/2" class="s-text13 {% if request.path  == '/products/2/' %}active1{% endif %}">
+									Women
+								</a>
+							</li>
+
+							<li class="p-t-4">
+								<a href="/products/1" class="s-text13 {% if request.path  == '/products/1/' %}active1{% endif %}">
+									Men
+								</a>
+							</li>
+
+							<li class="p-t-4">
+								<a href="/products/3" class="s-text13 {% if request.path  == '/products/3/' %}active1{% endif %}">
+									Kids
+								</a>
+							</li>
+
+							<li class="p-t-4">
+								<a href="/products/5" class="s-text13 {% if request.path  == '/products/5/' %}active1{% endif %}">
+									Accessories
+								</a>
+							</li>
+						</ul>
+
+						<!--  -->
+						<h4 class="m-text14 p-b-32">
+							Filter
+						</h4>
+
+						<div class="filter-price p-t-22 p-b-50 bo3">
+							<div class="m-text15 p-b-17">
+								Price
+							</div>
+
+							<div class="wra-filter-bar">
+								<div id="filter-bar"></div>
+							</div>
+
+							<div class="flex-sb-m flex-w p-t-16">
+								<div class="w-size11">
+									<!-- Button -->
+									<button id="filt-price" class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
+										Filter
+									</button>
+								</div>
+
+								<div class="s-text3 p-t-10 p-b-10">
+									Range: $<span id="value-lower">610</span> - $<span id="value-upper">980</span>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="search-product pos-relative bo4 of-hidden">
+                            <form action="/products/search/" method="GET">
+                                <input class="s-text7 size6 p-l-23 p-r-50" maxlength="100" type="text" name="q" placeholder="Search Products...">
+
+                                <button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+                                    <i class="fs-12 fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+					<!--  -->
+					<div style="width: 100%;" class="p-b-35">
+						<div class="" style="    position: relative;
+    width: 100%;
+    height: 41px;">
+							<div style="    float: right;
+    position: relative;" class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+								<select class="selection-2" id="sort-def" name="sorting">
+									<option value="def">Default Sorting</option>
+									<option {% if sort == 'lowth' %} selected {% endif %} value="lowth">Price: low to high</option>
+									<option {% if sort == 'htlow' %} selected {% endif %} value="htlow">Price: high to low</option>
+								</select>
+							</div>
+
+{#							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">#}
+{#								<select class="selection-2" name="sorting">#}
+{#									<option>Price</option>#}
+{#									<option>$0.00 - $50.00</option>#}
+{#									<option>$50.00 - $100.00</option>#}
+{#									<option>$100.00 - $150.00</option>#}
+{#									<option>$150.00 - $200.00</option>#}
+{#									<option>$200.00+</option>#}
+{##}
+{#								</select>#}
+{#							</div>#}
+						</div>
+					</div>
+
+					<!-- Product -->
+					<div class="row">
+                    {% if max_lenght == True %}
+                        The request exceeded 100 characters
+                    {% endif %}
+                    {% if not_find == True %}
+                        No results were found for this search.
+
+                    {% endif %}
+                        {% for post in posts %}
+
+
+						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50 ">
+							<!-- Block2 -->
+							<div class="block2">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative {% if post.product.is_sale == True %} block2-labelsale {% endif %} {% if post.product.is_new == True %} block2-labelnew {% endif %}">
+
+									<img src="/{{ post.image.url }}" alt="IMG-PRODUCT">
+
+									<div class="block2-overlay trans-0-4">
+{#										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">#}
+{#											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>#}
+{#											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>#}
+{#										</a>#}
+
+										<div cart_id="{{ post.product.id }}" class="block2-btn-addcart w-size1 trans-0-4">
+											<!-- Button -->
+											<button id="{{ post.product.id }}" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 btn-addcart add_card_shop">
+												Add to Cart
+											</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="block2-txt p-t-20">
+									<a href="/products/product/{{ post.product.id }}" class="block2-name dis-block s-text3 p-b-5">
+                                       {{ post.product.product_name }}
+
+									</a>
+                                    {% if post.product.is_sale == True %}
+                                        <span class="block2-oldprice m-text7 p-r-5">
+                                            ${{ post.product.product_price }}
+										</span>
+                                        <span class="block2-newprice m-text8 p-r-5">
+                                            <script>
+                                                var oldPrice = '{{ post.product.product_price }}';
+                                                var sale = '{{ post.product.sale }}';
+                                                var newPrice;
+                                                if (sale > 0 ){
+                                                    newPrice = oldPrice - ((sale/100)*oldPrice);
+                                                    document.write('$' + newPrice.toFixed(2));
+                                                }
+                                                else {
+                                                    document.write('$' + '{{ post.product.product_price }}');
+                                                }
+                                            </script>
+									    </span>
+                                     {% endif %}
+                                {% if post.product.is_sale == False %}
+                                        <span class="block2-price m-text6 p-r-5">
+										${{ post.product.product_price }}
+									</span>
+                                     {% endif %}
+
+								</div>
+							</div>
+						</div>
+                    {% endfor %}
+                    </div>
+
+
+					<!-- Pagination -->
+					{% if posts.has_other_pages %}
+                  <ul class="pagination flex-m flex-w p-r-50">
+                    {% if posts.has_previous %}
+
+                    {% else %}
+                    {% endif %}
+                    {% for i in posts.paginator.page_range %}
+                      {% if posts.number == i %}
+                        <li class="item-pagination flex-c-m trans-0-4 active-pagination" ><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                      {% else %}
+                        <li><a class="item-pagination flex-c-m trans-0-4" href="?page={{ i }}&sort={{ sort }}">{{ i }}</a></li>
+                      {% endif %}
+                    {% endfor %}
+                    {% if posts.has_next %}
+                    {% else %}
+                    {% endif %}
+                  </ul>
+                {% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+{% include 'base/footer.html' %}
+
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection -->
+	<div id="dropDownSelect1"></div>
+	<div id="dropDownSelect2"></div>
+
+
+
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'new/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'new/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'new/vendor/bootstrap/js/popper.js'%}"></script>
+	<script type="text/javascript" src="{% static 'new/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'new/vendor/select2/select2.min.js'%}"></script>
+	<script type="text/javascript">
+		$(".selection-1").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect2')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'new/vendor/daterangepicker/moment.min.js'%}"></script>
+	<script type="text/javascript" src="{% static 'new/vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'new/vendor/slick/slick.min.js'%}"></script>
+	<script type="text/javascript" src="{% static 'new/js/slick-custom.js'%}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'new/vendor/sweetalert/sweetalert.min.js'%}"></script>
+	<script type="text/javascript">
+
+	</script>
+
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'new/vendor/noui/nouislider.min.js'%}"></script>
+	<script type="text/javascript">
+		/*[ No ui ]
+	    ===========================================================*/
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 50, 200 ],
+	        connect: true,
+	        range: {
+	            'min': 50,
+	            'max': 200
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]) ;
+	    });
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'new/js/main.js' %}"></script>
+
+</body>
+</html>
